@@ -22,11 +22,11 @@
 			</AppRailAnchor>
 			<AppRailAnchor href="{base}/preparation" selected={$page.route.id === '/preparation'}>
 				<svelte:fragment slot="lead"><span class="material-symbols-outlined">groups</span></svelte:fragment>
-				<span>Study Manager</span>
+				<span>Study Configuration</span>
 			</AppRailAnchor>
 			<AppRailAnchor href="{base}/postprocessing" selected={$page.route.id === '/postprocessing'}>
 				<svelte:fragment slot="lead"><span class="material-symbols-outlined">insert_chart</span></svelte:fragment>
-				<span>Postprocessing</span>
+				<span>Log File Processing</span>
 			</AppRailAnchor>
 			<svelte:fragment slot="trail">
 				<AppRailAnchor href="https://carwatch-tools.github.io/" target="_blank" rel="noreferrer">

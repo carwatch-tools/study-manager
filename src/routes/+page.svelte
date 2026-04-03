@@ -58,7 +58,7 @@
 			<span class="mr-6">&#129404;</span>Process exported CARWatch logs locally in your browser
 		</p>
 
-		<p class="!text-lg max-w-[675px] pt-2">
+		<p class="!text-xl max-w-[675px] pt-2">
 			For the full CARWatch framework, app downloads, publications, and project background, visit the <a class="underline" href="https://carwatch-tools.github.io/" target="_blank" rel="noreferrer">main CARWatch page</a>.
 		</p>
 		<div class="flex gap-8">
