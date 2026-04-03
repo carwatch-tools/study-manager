@@ -36,7 +36,7 @@ jobs:
 
       - name: Build
         env:
-          BASE_PATH: '/study-generator'
+          BASE_PATH: '/study-manager'
         run: npm run build
 
       - name: Upload Artifacts
