@@ -41,30 +41,34 @@
 
 <div class="grid grid-cols-3 gap-4 md:gap-10 items-center justify-items-center h-screen">
 	<div class="flex flex-col col-span-2 row-span-3 items-center xl:items-start text-center xl:text-left space-y-4">
-		<h1 class="!text-5xl md:!text-6xl max-w-[800px]">Welcome to <br> CARWatch Study Manager</h1>
+		<h1 class="!text-5xl md:!text-6xl max-w-[800px]">CARWatch Study Manager</h1>
 		<p class="!text-xl max-w-[675px]">
-			<b>CARWatch is a free open-source framework to support the objective and low-cost assessment of biomarker samples in real-world environments.</b>
+			<b>Study Manager is the CARWatch web interface for study preparation, barcode and QR-code generation, and post-study log processing.</b>
 		</p>
 		<p class="!text-xl max-w-[675px]">
-			<span class="mr-6">&#9200;</span>Specifically developed for Cortisol Awakening Response (CAR) studies
+			<span class="mr-6">&#9200;</span>Prepare study settings and sampling schedules in the browser
 		</p>
 		<p class="!text-xl max-w-[675px]">
-			<span class="mr-6">&#127968;</span>Suitable for supporting diurnal biomarker collection at home
+			<span class="mr-6">&#127968;</span>Generate printable labels, barcodes, and setup QR codes for field studies
 		</p>
 		<p class="!text-xl max-w-[675px]">
-			<span class="mr-6">&#129404;</span>Suitable for lab-based biomarker collection
+			<span class="mr-6">&#129404;</span>Process exported CARWatch logs locally in your browser
 		</p>
 		<p class="!text-xl max-w-[675px]">
-			<span class="mr-6">&#9989;</span>Supports study preparation, data collection, and post-study log processing
+			<span class="mr-6">&#9989;</span>For the full CARWatch framework, app downloads, publications, and project background, visit the <a class="underline" href="https://carwatch-tools.github.io/" target="_blank" rel="noreferrer">main CARWatch page</a>
 		</p>
 		<div class="flex gap-8">
 			<a href="{base}/preparation" class="btn variant-filled-primary">
-				<span class="text-xl">Open Study Manager</span>
+				<span class="text-xl">Open Study Setup</span>
 				<i class="fa-solid fa-arrow-right-long" />
 			</a>
 			<a href="{base}/postprocessing" class="btn variant-filled-primary">
 				<span class="text-xl">Process Study Logs</span>
 				<i class="fa-solid fa-arrow-right-long" />
+			</a>
+			<a href="https://carwatch-tools.github.io/" target="_blank" rel="noreferrer" class="btn variant-soft-primary">
+				<span class="text-xl">CARWatch Project</span>
+				<i class="fa-solid fa-arrow-up-right-from-square" />
 			</a>
 		</div>
 	</div>

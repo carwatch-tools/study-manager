@@ -29,6 +29,10 @@
 				<span>Postprocessing</span>
 			</AppRailAnchor>
 			<svelte:fragment slot="trail">
+				<AppRailAnchor href="https://carwatch-tools.github.io/" target="_blank" rel="noreferrer">
+					<svelte:fragment slot="lead"><span class="material-symbols-outlined">open_in_new</span></svelte:fragment>
+					<span>CARWatch</span>
+				</AppRailAnchor>
 				<LightSwitch class="mb-8 ml-8"/>
 			</svelte:fragment>
 		</AppRail>
