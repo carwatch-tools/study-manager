@@ -64,7 +64,7 @@
 					<span class="material-symbols-outlined">upload_file</span>
 				</svelte:fragment>
 				<svelte:fragment slot="message"><b>Upload files</b> or drag and drop.</svelte:fragment>
-				<svelte:fragment slot="meta">Select all participant ZIP-files to evaluate.</svelte:fragment>
+				<svelte:fragment slot="meta">Select all participant ZIP files to evaluate.</svelte:fragment>
 			</FileDropzone>
 
 			<SelectedFileList bind:files={files} />

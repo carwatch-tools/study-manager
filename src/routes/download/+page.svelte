@@ -136,7 +136,7 @@
 		<div>
 			<button on:click={downloadQrCode} type="button" class="btn variant-filled-primary p-6 mt-6">
 				<span class="material-symbols-outlined">qr_code_2</span>
-				<span>Get Printable QR-Code</span>
+				<span>Get Printable QR Codes</span>
 			</button>
 		</div>
 	{/if}
@@ -146,7 +146,7 @@
 			<span class="material-symbols-outlined"> warning </span>
 			<div class="alert-message">
 				<h3>No Material Generated!</h3>
-				<p>Make sure you select materials to generate in your study configuration.</p>
+				<p>Make sure you select materials to generate in your Study Configuration.</p>
 			</div>
 		</aside>
 	{/if}

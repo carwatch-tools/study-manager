@@ -93,7 +93,7 @@
 		if (!hasValidEmail) {
 			issues.push({
 				field: "contact",
-				message: "Enter a valid contact email address."
+				message: "Enter a valid Email address."
 			});
 		}
 
@@ -247,7 +247,7 @@
 			
 			{#if $qrCodeProps.generateQrCodes}
 				<label class="label md:w-1/3">
-					<span>Contact Email</span>
+					<span>Email</span>
 					<input class="input {hasValidationError('contact') ? 'border-error-500' : ''}" id="mail" type="email" bind:value={$qrCodeProps.contact} aria-invalid={hasValidationError('contact')} required />
 					<p class="text-sm opacity-70">This address will be used to pre-fill the sharing form of the log files in the CARWatch app.</p>
 				</label>
@@ -262,7 +262,7 @@
 					</label>
 					<label class="flex items-center space-x-2">
 						<input class="checkbox" type="checkbox" bind:checked={$qrCodeProps.includeParticipantId} on:change={checkMaxQrRows} />
-						<p>Include participant IDs in QR Codes</p>
+						<p>Include participant IDs in QR codes</p>
 						<p class="text-sm opacity-70">Creates participant-specific QR codes instead of one shared study setup code.</p>
 					</label>
 					<label class="flex items-center space-x-2">

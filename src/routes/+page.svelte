@@ -43,7 +43,7 @@
 	<div class="flex flex-col col-span-2 row-span-3 items-center xl:items-start text-center xl:text-left space-y-4">
 		<h1 class="!text-5xl md:!text-6xl max-w-[800px]">CARWatch Study Manager</h1>
 		<p class="!text-xl max-w-[675px]">
-			<b>The Study Manager is the CARWatch web interface for study preparation, barcode and QR-code generation, and post-study log processing.</b>
+			<b>The Study Manager is the CARWatch web interface for study preparation, barcode and QR code generation, and post-study log processing.</b>
 		</p>
 		<p class="!text-xl max-w-[675px]">
 			<b>It has the following features:</b>
@@ -52,7 +52,7 @@
 			<span class="mr-6">&#9200;</span>Prepare study settings and sampling schedules in the browser
 		</p>
 		<p class="!text-xl max-w-[675px]">
-			<span class="mr-6">&#127968;</span>Generate printable labels, barcodes, and setup QR codes for field studies
+			<span class="mr-6">&#127968;</span>Generate printable labels, barcodes, and set up QR codes for field studies
 		</p>
 		<p class="!text-xl max-w-[675px]">
 			<span class="mr-6">&#129404;</span>Process exported CARWatch logs locally in your browser
@@ -99,7 +99,7 @@
 						</span>
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3 class="h3">Study preparation</h3>
+						<h3 class="h3">Study Preparation</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<div>
@@ -114,7 +114,7 @@
 									<span class="flex-auto">Set up your desired sampling schedule</span>
 								</li>
 								<li><span>&#8226;</span>
-									<span class="flex-auto">Generate a QR-Code for the CARWatch smartphone app to automatically configure the study</span>
+									<span class="flex-auto">Generate a QR code for the CARWatch app to automatically configure the study</span>
 								</li>
 							</ul>
 						</div>
@@ -127,7 +127,7 @@
 						</span>
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3 class="h3">Create printable barcode labels</h3>
+						<h3 class="h3">Create Printable Barcode Labels</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content"><div>
 						<ul class="list">
@@ -153,7 +153,7 @@
 						</span>
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
-						<h3 class="h3">Use CARWatch app during your study</h3>
+						<h3 class="h3">Use the CARWatch app During Your Study</h3>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						<ul class="list">
@@ -161,13 +161,13 @@
 								<span class="flex-auto">Download App from <a href="https://play.google.com/store/apps/details?id=de.fau.cs.mad.carwatch">Google Play Store</a></span>
 							</li>
 							<li><span>&#8226;</span>
-								<span class="flex-auto">Easy setup: Just scan the generated QR-Code to configure the app for your study</span>
+								<span class="flex-auto">Easy setup: Just scan the generated QR code to configure the app for your study</span>
 							</li>
 							<li><span>&#8226;</span>
 								<span class="flex-auto">Schedule and track sampling times in the app</span>
 							</li>
 							<li><span>&#8226;</span>
-								<span class="flex-auto">Export the app logs and share via email</span>
+								<span class="flex-auto">Export the app logs and share via Email</span>
 							</li>
 						</ul>
 					</svelte:fragment>

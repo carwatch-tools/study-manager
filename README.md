@@ -24,12 +24,12 @@ All these features are provided by `study-manager`:
 This includes: 
    * Customizing study properties to your needs
    * Setting up your desired sampling schedule
-   * Generating a QR-Code for the [CARWatch app](https://github.com/mad-lab-fau/carwatch-app) to automatically set up 
+   * Generating a QR code for the [CARWatch app](https://github.com/mad-lab-fau/carwatch-app) to automatically set up 
    the study in the app
 
 2. **Creating printable labels with barcodes for objective sampling time assessment.**
 This includes:
-   * Customizing the numer of saliva samples per day, the number of days, and the number of study participants
+   * Customizing the number of saliva samples per day, the number of days, and the number of study participants
    * Adding an optional evening saliva sample
    * Customize barcodes to fit your printable label templates
 
@@ -84,7 +84,7 @@ You can preview the production build with `npm run preview`.
 
 ### Deploying
 
-`study-manager` uses a static adapter and is thus completely client-site rendered. It is hosted on GitHub Pages and deployed automatically on every push to the `main` branch.
+`study-manager` uses a static adapter and is thus completely client-side rendered. It is hosted on GitHub Pages and deployed automatically on every push to the `main` branch.
 
 ## License
 
