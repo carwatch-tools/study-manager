@@ -62,7 +62,7 @@
 			For the full CARWatch framework, app downloads, publications, and project background, visit the <a class="underline" href="https://carwatch-tools.github.io/" target="_blank" rel="noreferrer">main CARWatch page</a>.
 		</p>
 		<div class="flex gap-8">
-			<a href="{base}/preparation" class="btn variant-filled-primary">
+			<a href="{base}/study-configuration" class="btn variant-filled-primary">
 				<span class="text-xl">Study Configuration</span>
 				<i class="fa-solid fa-arrow-right-long" />
 			</a>

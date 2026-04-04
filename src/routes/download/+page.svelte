@@ -121,7 +121,7 @@
 	}
 </script>
 
-<BackButton parentRoute={`preparation`} />
+<BackButton parentRoute={`study-configuration`} />
 <div class="px-10">
 	<h1>Study Material</h1>
 	{#if $barcodeProps.generateBarcodes}

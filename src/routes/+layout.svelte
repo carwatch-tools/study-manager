@@ -20,7 +20,7 @@
 				<svelte:fragment slot="lead"><span class="material-symbols-outlined">home</span></svelte:fragment>
 				<span>Home</span>
 			</AppRailAnchor>
-			<AppRailAnchor href="{base}/preparation" selected={$page.route.id === '/preparation'}>
+			<AppRailAnchor href="{base}/study-configuration" selected={$page.route.id === '/study-configuration'}>
 				<svelte:fragment slot="lead"><span class="material-symbols-outlined">groups</span></svelte:fragment>
 				<span>Study<br>Configuration</span>
 			</AppRailAnchor>

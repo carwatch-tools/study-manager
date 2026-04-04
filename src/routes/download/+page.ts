@@ -4,7 +4,7 @@ import type { PageLoad } from './$types';
 
 export const load = (async () => {
     if (!(studyPropsValid && barcodePropsValid && qrCodePropsValid)) {
-        throw redirect(302, '/preparation');
+        throw redirect(302, '/study-configuration');
     }
     return {};
 }) satisfies PageLoad;
