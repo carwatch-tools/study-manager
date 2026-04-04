@@ -3,6 +3,7 @@
 	import { barcodeProps, qrCodeProps, studyProps } from '$lib/stores/configStore';
 	import {
 		FORBIDDEN_CHARACTERS,
+		getPreparationStepCount,
 		QR_PARSER_APP_ID,
 		QR_PARSER_PROPERTY_CONTACT,
 		QR_PARSER_PROPERTY_DUPLICATES,
@@ -20,6 +21,8 @@
 	} from '$lib/constants';
 	import { barcodeDataArray, captionArray, qrDataArray } from '$lib/stores/dataStore';
 	import BackButton from '$lib/components/general/BackButton.svelte';
+
+	$: returnStep = getPreparationStepCount($studyProps.studyType);
 
 	function downloadBarcodes() {
 		createBarcodes();
@@ -121,7 +124,7 @@
 	}
 </script>
 
-<BackButton parentRoute="preparation" />
+<BackButton parentRoute={`preparation?step=${returnStep}`} />
 <div class="px-10">
 	<h1>Study Material</h1>
 	{#if $barcodeProps.generateBarcodes}
