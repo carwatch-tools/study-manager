@@ -7,7 +7,7 @@ CARWatch is an open-source framework to support **objective** and **low-cost** a
 
 For general project information, framework documentation, publications, and app links, see the main CARWatch page at <https://carwatch-tools.github.io/>.
 
-It consists of an [Android application](https://github.com/mad-lab-fau/carwatch-app) that schedules sampling times and tracks
+It consists of an [Android application](https://github.com/carwatch-tools/carwatch-android) that schedules sampling times and tracks
 them by scanning a barcode on the respective sampling tube as well as [Study Manager](https://carwatch-tools.github.io/study-manager/), a web-based tool for
 **study preparation**, **study material generation**, and **post-study log processing**.
 Alternatively, users with programming experience can use the corresponding [Python package](https://github.com/mad-lab-fau/carwatch-python/) that provides the same range of functionality.
@@ -24,7 +24,7 @@ All these features are provided by `study-manager`:
 This includes: 
    * Customizing study properties to your needs
    * Setting up your desired sampling schedule
-   * Generating a QR code for the [CARWatch app](https://github.com/mad-lab-fau/carwatch-app) to automatically set up 
+   * Generating a QR code for the [CARWatch app](https://github.com/carwatch-tools/carwatch-android) to automatically set up 
    the study in the app
 
 2. **Creating printable labels with barcodes for objective sampling time assessment.**
