@@ -78,6 +78,7 @@ export const studyPropsValid = writable(Boolean(storedStudyProps));
 export const barcodePropsValid = writable(Boolean(storedBarcodeProps));
 export const qrCodePropsValid = writable(Boolean(storedQrCodeProps));
 export const qrCodeSubmitAttempted = writable(false);
+export const preparationCurrentStep = writable(1);
 
 if (browser) {
   // Update the local storage when the store changes
