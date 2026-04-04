@@ -155,6 +155,13 @@
 			<p>Add barcodes to labels</p>
 			<p class="text-sm opacity-70">Adds a barcode to each label. This is required for the CARWatch app to function properly.</p>
 		</label>
+		{#if $barcodeProps.hasBarcode}
+		<label class="flex items-center space-x-2">
+			<input class="checkbox" id="print_barcode_value" type="checkbox" bind:checked={$barcodeProps.printBarcodeValue}>
+			<p>Print barcode value on labels</p>
+			<p class="text-sm opacity-70">Prints the numeric barcode value vertically on the left side in a smaller font.</p>
+		</label>
+		{/if}
 		<hr class="my-4">
 		<h4>Print label layout:</h4>
 		<label class="label md:w-1/3 my-4">

@@ -89,13 +89,16 @@
             {#each Array(cellsPerPage) as _, i}
                 {#if !(page*cellsPerPage + i >= numBarcodes)}
                     {#if $barcodeProps.hasBarcode}
-                        <div class="label label-barcode p-2 overflow-hidden" class:label-barcode-no-name={!$barcodeProps.addName} style="--label-width: {labelWidth}; --label-height: {labelHeight}">
+                        <div class="label label-barcode p-2 overflow-hidden" class:label-barcode-no-name={!$barcodeProps.addName} class:label-barcode-with-value={$barcodeProps.printBarcodeValue} style="--label-width: {labelWidth}; --label-height: {labelHeight}">
 							{#if $barcodeProps.addName}
 								<p class="adjust-text-size top-caption text-black px-2">{getTopCaption($captionArray[page*cellsPerPage + i])}</p>
 							{:else}
 								<div class="top-caption-spacer" aria-hidden="true"></div>
 							{/if}
 							<div class="barcode-shell">
+								{#if $barcodeProps.printBarcodeValue}
+									<p class="barcode-value text-black">{$barcodeDataArray[page*cellsPerPage + i]}</p>
+								{/if}
                             	<svg class="barcode" id="barcode{page*cellsPerPage + i}"></svg>
 							</div>
                             <p class="adjust-text-size bottom-caption text-black px-2">{getBottomCaption($captionArray[page*cellsPerPage + i])}</p>
@@ -163,6 +166,12 @@
 			width: 100%;
 			height: 100%;
 			min-height: 0;
+			position: relative;
+			padding-left: 0;
+		}
+
+		.label-barcode-with-value .barcode-shell {
+			padding-left: 3.5mm;
 		}
 
         .label svg {
@@ -202,6 +211,18 @@
 		.bottom-caption {
 			text-align: center;
 			line-height: 0.9;
+		}
+
+		.barcode-value {
+			position: absolute;
+			left: 1.5mm;
+			top: 50%;
+			transform: translate(-50%, -50%) rotate(-90deg);
+			transform-origin: center;
+			font-size: 0.2rem;
+			line-height: 1;
+			white-space: nowrap;
+			text-align: center;
 		}
      
         .page {
