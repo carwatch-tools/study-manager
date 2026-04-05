@@ -83,19 +83,13 @@ export const preparationCurrentStep = writable(1);
 if (browser) {
   // Update the local storage when the store changes
   studyProps.subscribe((value) => {
-    if (studyPropsValid) {
-      localStorage.storedStudyProps = JSON.stringify(value);
-    }
+    localStorage.storedStudyProps = JSON.stringify(value);
   });
   barcodeProps.subscribe((value) => {
-    if (barcodePropsValid) {
-      localStorage.storedBarcodeProps = JSON.stringify(value);
-    }
+    localStorage.storedBarcodeProps = JSON.stringify(value);
   });
   qrCodeProps.subscribe((value) => {
-    if (qrCodePropsValid) {
-      localStorage.storedQrCodeProps = JSON.stringify(value)
-    }
+    localStorage.storedQrCodeProps = JSON.stringify(value);
   });
 }
 

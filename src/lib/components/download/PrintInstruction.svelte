@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let fileType: String;
+    export let fileType: string;
     export let widthMm: number = 210;
 </script>
 

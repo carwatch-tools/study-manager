@@ -18,7 +18,7 @@
 	export let downloadEnabled: boolean = false;
 	export let csvData: string = "";
 
-	function handleUpload(e: Event) {
+	function handleUpload() {
 		filesUploaded = true;
 	}
 
