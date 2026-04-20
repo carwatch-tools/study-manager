@@ -84,7 +84,7 @@ async function loadIndividualFileContent(
     };
 }
 
-function parseLogFileContent(fileContent: string): string[][] {
+export function parseLogFileContent(fileContent: string): string[][] {
     const parsedEntries: string[][] = [];
     let currentEntry = '';
 
