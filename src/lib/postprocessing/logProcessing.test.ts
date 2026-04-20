@@ -50,7 +50,7 @@ describe('log file processing', () => {
     const collectedData = collectData(parsedEntries);
 
     expect(collectedData.awakening_info.awakening_type).toBe('self-report');
-    expect(collectedData.sampling_count).toBe(1);
+    expect(collectedData.sample_count).toBe(1);
     expect(collectedData.sampling_info).toEqual([
       {
         saliva_id: 'S1',

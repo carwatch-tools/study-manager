@@ -113,11 +113,11 @@
       }
     }
 
-    function parseFile(file: File, delimiter: String): Promise<string[]>{
+    function parseFile(file: File, delimiter: string): Promise<string[]>{
       let participantList: string [] = [];
       let err: string = "";
       return new Promise<string[]>((resolve, reject) => {
-        Papa.parse(file, {
+        Papa.parse(file as any, {
           header: true,
           skipEmptyLines: true,
           delimiter: delimiter,
