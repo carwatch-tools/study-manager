@@ -261,7 +261,7 @@
 						<p class="text-sm opacity-70">Places the study name at the top of each printed QR code label.</p>
 					</label>
 					<label class="flex items-center space-x-2">
-						<input class="checkbox" type="checkbox" bind:checked={$qrCodeProps.includeParticipantId} on:change={checkMaxQrRows} />
+						<input class="checkbox" type="checkbox" bind:checked={$qrCodeProps.includeParticipantId} on:change={() => checkMaxQrRows()} />
 						<p>Include participant IDs in QR codes</p>
 						<p class="text-sm opacity-70">Creates participant-specific QR codes instead of one shared study setup code.</p>
 					</label>

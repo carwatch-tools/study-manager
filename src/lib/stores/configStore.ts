@@ -93,7 +93,7 @@ if (browser) {
   });
 }
 
-function addMissingProperties(storedValues, defaultValues) {
+function addMissingProperties<T extends Record<string, unknown>>(storedValues: T, defaultValues: T): T {
   for (const key in defaultValues) {
     if (!(key in storedValues) || storedValues[key] === undefined || storedValues[key] === null) {
       storedValues[key] = defaultValues[key];

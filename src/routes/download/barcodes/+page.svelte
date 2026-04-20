@@ -25,7 +25,7 @@
             }); 
         }
 
-        document.querySelectorAll('.adjust-text-size').forEach(element => {
+        document.querySelectorAll<HTMLElement>('.adjust-text-size').forEach(element => {
             adjustFontSize(element);
         })
     });
@@ -50,7 +50,10 @@
     let labelWidth = (pageWidth - $barcodeProps.leftMargin - $barcodeProps.rightMargin - $barcodeProps.colDist * ($barcodeProps.numCols - 1)) / $barcodeProps.numCols + "mm";
     let labelHeight = (pageHeight - $barcodeProps.topMargin - $barcodeProps.bottomMargin - $barcodeProps.rowDist * ($barcodeProps.numRows - 1)) / $barcodeProps.numRows + "mm";
 
-    function adjustFontSize(e) {
+    function adjustFontSize(e: HTMLElement) {
+        if (!e.parentElement) {
+            return;
+        }
         const parentWidth = e.parentElement.offsetWidth;
         let fontSize = parseInt(window.getComputedStyle(e, null).getPropertyValue('font-size'));
 

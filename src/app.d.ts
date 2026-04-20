@@ -7,3 +7,9 @@ declare namespace App {
 	// interface Error {}
 	// interface Platform {}
 }
+
+declare const PKG: {
+	version: string;
+};
+
+declare module 'qrcode';
