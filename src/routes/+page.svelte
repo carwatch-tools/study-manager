@@ -61,6 +61,13 @@
 		<p class="!text-xl max-w-[675px] pt-2">
 			For the full CARWatch framework, app downloads, publications, and project background, visit the <a class="underline" href="https://carwatch-tools.github.io/" target="_blank" rel="noreferrer">main CARWatch page</a>.
 		</p>
+		<aside class="alert variant-soft-primary max-w-[675px] text-left">
+			<span class="material-symbols-outlined">verified_user</span>
+			<div class="alert-message">
+				<h3>Ethics approval</h3>
+				<p>To comply with App Store regulations, CARWatch should only be configured by study staff for studies that have received the required ethics board approval.<br> Study staff are responsible for confirming approval before creating study materials. For further questions, please contact <a class="underline" href="mailto:robert.richer@fau.de">robert.richer@fau.de</a>.</p>
+			</div>
+		</aside>
 		<div class="flex gap-8">
 			<a href="{base}/study-configuration" class="btn variant-filled-primary">
 				<span class="flex-1 text-center">Study Configuration</span>

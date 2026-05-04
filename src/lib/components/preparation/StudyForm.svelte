@@ -175,6 +175,13 @@
   <svelte:fragment slot="header">Study Details</svelte:fragment>
 
   <form id="study_form">
+    <aside class="alert variant-soft-primary mb-6">
+      <span class="material-symbols-outlined">verified_user</span>
+      <div class="alert-message">
+        <h3>Ethics approval</h3>
+        <p>Before configuring CARWatch for a study, study staff are responsible for ensuring that the study has received the required ethics board approval and that participants are informed according to the approved study protocol. For further questions, please contact <a class="underline" href="mailto:robert.richer@fau.de">robert.richer@fau.de</a>.</p>
+      </div>
+    </aside>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
