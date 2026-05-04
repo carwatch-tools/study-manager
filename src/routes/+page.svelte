@@ -65,7 +65,7 @@
 			<span class="material-symbols-outlined">verified_user</span>
 			<div class="alert-message">
 				<h3>Ethics approval</h3>
-				<p>To comply with App Store regulations, CARWatch should only be configured by study staff for studies that have received the required ethics board approval.<br> Study staff are responsible for confirming approval before creating study materials. For further questions, please contact <a class="underline" href="mailto:robert.richer@fau.de">robert.richer@fau.de</a>.</p>
+				<p>To comply with App Store regulations, CARWatch should only be configured by study staff for studies that have received the required ethics board approval.<br> By using CARWatch to configure a study, study staff confirm that the study has received the required ethics board approval and that participants will be informed according to the approved study protocol. For further questions, please contact <a class="underline" href="mailto:robert.richer@fau.de">robert.richer@fau.de</a>.</p>
 			</div>
 		</aside>
 		<div class="flex gap-8">
