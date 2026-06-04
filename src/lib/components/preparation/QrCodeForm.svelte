@@ -275,24 +275,27 @@
 						<hr class="my-4">
 						<h4>Configure sampling reminders</h4>
 
-						<label class="label md:w-1/3">
-							<span>Sampling schedule</span><p class="text-sm opacity-70">Specify how sample reminders are scheduled</p>
-							<select
-								class="select"
-								value={uniformSalivaDistances ? 'equal' : 'custom'}
-								on:change={handleSamplingModeChange}
-							>
-								<option value="equal">Evenly spaced</option>
-								<option value="custom">Flexible</option>
-							</select>
-						</label>
-
-						<p class="text-sm opacity-70">
-							Use <b>Evenly spaced</b> when all samples follow the same interval.
-						</p>
-						<p class="text-sm opacity-70">
-							Choose <b>Flexible</b> when intervals vary or when some samples should be taken at fixed clock times (potentially relevant for diurnal rhythm studies).
-						</p>
+						<div class="space-y-2">
+							<label class="label md:w-1/3">
+								<span>Sampling schedule</span>
+								<select
+									class="select"
+									value={uniformSalivaDistances ? 'equal' : 'custom'}
+									on:change={handleSamplingModeChange}
+								>
+									<option value="equal">Evenly spaced</option>
+									<option value="custom">Flexible</option>
+								</select>
+							</label>
+							<ul class="list-disc space-y-1 pl-5 text-sm opacity-70">
+								<li>
+									<b>Evenly spaced:</b> All samples follow the <em>same interval</em>. The first sample is taken <em>immediately</em> after waking up, and the following samples are scheduled based on the specified time interval.
+								</li>
+								<li>
+									<b>Flexible:</b> Intervals vary, or some samples are taken at fixed clock times. <em>Fixed-time</em> samples can be set to specific times (e.g., 12pm, 3pm), while the remaining samples use <em>time intervals</em> (e.g., 15 min after waking up, then 30 min later).
+								</li>
+							</ul>
+						</div>
 					{/if}
 				</div>
 

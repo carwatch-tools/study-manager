@@ -329,10 +329,18 @@
           </select>
         </label>
 
-        <p class="text-sm opacity-70"><b>Field study:</b> Supports the full CARWatch workflow, including study scheduling, QR code setup for the app, and printable barcode labels for saliva tubes.</p>
-        <p class="text-sm opacity-70"><b>Lab study:</b> Generates printable barcode labels for saliva tubes only. No alarms, QR code setup, or app configuration are included. This is a convenient way to prepare clearly labeled tubes instead of writing participant and sample IDs by hand.</p>
-          
-      </div>
+        <ul class="list-disc space-y-1 pl-5 text-sm opacity-70">
+          <li>
+            <b>Field study:</b> Supports the full CARWatch workflow, including study scheduling, QR code setup for the app, and printable barcode labels for saliva tubes.
+          </li>
+          <li>
+            <b>Lab study:</b> Generates printable barcode labels for saliva tubes only. No alarms, QR code setup, or app configuration are included. This is a convenient way to prepare clearly labeled tubes instead of writing participant and sample IDs by hand.
+          </li>
+          <li>
+            <b>Other:</b> Custom study type for specialized research needs.
+          </li>
+        </ul>
+      </div>    
     </div>
   </form>
 
