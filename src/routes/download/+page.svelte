@@ -1,7 +1,13 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { base } from '$app/paths';
-	import { barcodeProps, qrCodeProps, studyProps } from '$lib/stores/configStore';
+	import {
+		barcodeProps,
+		barcodePropsValid,
+		qrCodeProps,
+		qrCodePropsValid,
+		studyProps
+	} from '$lib/stores/configStore';
 	import {
 		FORBIDDEN_CHARACTERS,
 		QR_PARSER_APP_ID,
@@ -125,7 +131,7 @@
 <BackButton parentRoute={`study-configuration`} />
 <div class="px-10">
 	<h1>Study Material</h1>
-	{#if $barcodeProps.generateBarcodes}
+	{#if $barcodeProps.generateBarcodes && $barcodePropsValid}
 		<div>
 			<button on:click={downloadBarcodes} type="button" class="btn variant-filled-primary p-6 mt-6">
 				<span class="material-symbols-outlined">barcode_scanner</span>
@@ -133,7 +139,7 @@
 			</button>
 		</div>
 	{/if}
-	{#if $qrCodeProps.generateQrCodes}
+	{#if $qrCodeProps.generateQrCodes && $qrCodePropsValid}
 		<div>
 			<button on:click={downloadQrCode} type="button" class="btn variant-filled-primary p-6 mt-6">
 				<span class="material-symbols-outlined">qr_code_2</span>
@@ -141,7 +147,7 @@
 			</button>
 		</div>
 	{/if}
-	{#if !$barcodeProps.generateBarcodes && !$qrCodeProps.generateQrCodes}
+	{#if !($barcodeProps.generateBarcodes && $barcodePropsValid) && !($qrCodeProps.generateQrCodes && $qrCodePropsValid)}
 		<br />
 		<aside class="alert variant-filled-error w-fit">
 			<span class="material-symbols-outlined"> warning </span>

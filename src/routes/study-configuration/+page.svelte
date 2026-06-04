@@ -6,7 +6,14 @@
 	import { base } from "$app/paths";
 	import { onMount } from "svelte";
 	import { get } from "svelte/store";
-	import { preparationCurrentStep, qrCodePropsValid, qrCodeSubmitAttempted } from "$lib/stores/configStore";
+	import {
+		barcodeProps,
+		barcodePropsValid,
+		preparationCurrentStep,
+		qrCodeProps,
+		qrCodePropsValid,
+		qrCodeSubmitAttempted
+	} from "$lib/stores/configStore";
 
 	let StudyForm;
 	let BarcodeForm;
@@ -24,7 +31,10 @@
 
 	function onCompleteHandler(e: CustomEvent<any>): void {
 		preparationCurrentStep.set(e.detail.state.current + 1);
-		if (!get(qrCodePropsValid)) {
+		const barcodesReady = get(barcodeProps).generateBarcodes && get(barcodePropsValid);
+		const qrCodesReady = get(qrCodeProps).generateQrCodes && get(qrCodePropsValid);
+
+		if (!barcodesReady && get(qrCodeProps).generateQrCodes && !qrCodesReady) {
 			qrCodeSubmitAttempted.set(true);
 			return;
 		}
