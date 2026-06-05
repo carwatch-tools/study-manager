@@ -2,6 +2,7 @@ NODE_PATH := /opt/homebrew/bin
 BASE_PATH ?= /study-manager
 PREVIEW_HOST ?= 127.0.0.1
 PREVIEW_PORT ?= 4173
+PLAYWRIGHT_PORT ?= 4174
 NVM_DIR ?= $(HOME)/.nvm
 NVM_USE = export NVM_DIR="$(NVM_DIR)"; . "$$NVM_DIR/nvm.sh"; nvm use >/dev/null &&
 
@@ -22,3 +23,4 @@ preview-deploy: build
 
 test:
 	$(NVM_USE) npm run test:unit -- --run
+	$(NVM_USE) PLAYWRIGHT_PORT=$(PLAYWRIGHT_PORT) npm test
