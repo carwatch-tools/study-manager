@@ -17,6 +17,7 @@ const SAMPLING_INFO = 'sampling_info';
 const SAMPLING_COUNT = 'sample_count';
 const SAMPLE_BARCODE = 'sample_barcode';
 const SAMPLE_SCANNED = 'sample_scanned';
+const SAMPLE_MISMATCHES = 'sample_mismatches';
 const SALIVA_ID = 'saliva_id';
 
 const COL_UNIX_TIME = 0;
@@ -213,6 +214,7 @@ function createHeader(
 		}
 		header.push(AWAKENING_TIME + '_D' + i + '_app');
 		header.push(AWAKENING_TYPE + '_D' + i);
+		header.push(SAMPLE_MISMATCHES + '_d' + i);
 		samples.forEach((sample) => {
 			header.push(SAMPLING_TIME + '_D' + i + '_' + sample);
 			header.push(`${SAMPLE_BARCODE}_D${i}_${sample}`);
@@ -271,6 +273,10 @@ function createParticipantRow(
 				row.push('');
 			}
 		}
+		const sampleMismatchSummary = entry.info.hasOwnProperty(SAMPLING_INFO)
+			? getSampleMismatchSummary(entry.info.sampling_info)
+			: '';
+		row.push(sampleMismatchSummary);
 		// add sampling times
 		if (entry.info.hasOwnProperty(SAMPLING_INFO)) {
 			const sampling_info = entry.info.sampling_info;
@@ -292,6 +298,18 @@ function createParticipantRow(
 	});
 
 	return row;
+}
+
+function getSampleMismatchSummary(
+	sampling_info: Array<{ saliva_id: any; sample_scanned: any }>
+): string {
+	return sampling_info
+		.filter(
+			(sample) =>
+				sample.saliva_id && sample.sample_scanned && sample.saliva_id !== sample.sample_scanned
+		)
+		.map((sample) => `${sample.saliva_id}->${sample.sample_scanned}`)
+		.join(';');
 }
 
 function getMsgKeyCol(data: Array<any>) {
