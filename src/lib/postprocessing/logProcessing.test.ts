@@ -119,9 +119,9 @@ describe('log file processing', () => {
 			'date_D1',
 			'awakening_time_D1_app',
 			'awakening_type_D1',
-			'sampling_time_S1_D1',
-			'sample_barcode_S1_D1',
-			'sample_scanned_S1_D1'
+			'sampling_time_D1_S1',
+			'sample_barcode_D1_S1',
+			'sample_scanned_D1_S1'
 		]);
 		expect(csvArray[1][0]).toBe('CARWatch Test');
 		expect(csvArray[1][1]).toBe('VP_01');
@@ -168,10 +168,10 @@ describe('log file processing', () => {
 		expect(
 			collectedData.sampling_info.map((sample: { sample_scanned: string }) => sample.sample_scanned)
 		).toEqual(['B1', 'B3', 'B2', 'B4']);
-		expect(csvArray[0]).toContain('sample_scanned_B2_D1');
-		expect(csvArray[0]).toContain('sample_scanned_B3_D1');
-		expect(csvArray[1][csvArray[0].indexOf('sample_scanned_B2_D1')]).toBe('B3');
-		expect(csvArray[1][csvArray[0].indexOf('sample_scanned_B3_D1')]).toBe('B2');
+		expect(csvArray[0]).toContain('sample_scanned_D1_B2');
+		expect(csvArray[0]).toContain('sample_scanned_D1_B3');
+		expect(csvArray[1][csvArray[0].indexOf('sample_scanned_D1_B2')]).toBe('B3');
+		expect(csvArray[1][csvArray[0].indexOf('sample_scanned_D1_B3')]).toBe('B2');
 	});
 
 	it('derives fallback metadata for log files without a formatted date suffix', async () => {
