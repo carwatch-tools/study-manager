@@ -32,18 +32,34 @@ const singleLineLogContent =
 const attachedExampleZip = readFileSync(
 	new URL('./fixtures/carwatch_logs_01.csv.zip', import.meta.url)
 );
+const swappedSamplesExampleZip = readFileSync(
+	new URL('./fixtures/carwatch_logs_02.csv.zip', import.meta.url)
+);
 
-function attachedExampleFile(): File {
-	const arrayBuffer = attachedExampleZip.buffer.slice(
-		attachedExampleZip.byteOffset,
-		attachedExampleZip.byteOffset + attachedExampleZip.byteLength
+function zipFixtureFile(zipContent: Buffer, fileName: string): File {
+	const arrayBuffer = zipContent.buffer.slice(
+		zipContent.byteOffset,
+		zipContent.byteOffset + zipContent.byteLength
 	) as ArrayBuffer;
 
-	return new File([arrayBuffer], 'carwatch_logs_01.csv.zip', { type: 'application/zip' });
+	return new File([arrayBuffer], fileName, { type: 'application/zip' });
+}
+
+function attachedExampleFile(): File {
+	return zipFixtureFile(attachedExampleZip, 'carwatch_logs_01.csv.zip');
+}
+
+function swappedSamplesExampleFile(): File {
+	return zipFixtureFile(swappedSamplesExampleZip, 'carwatch_logs_02.csv.zip');
 }
 
 async function extractAttachedExampleFixture() {
 	const extracted = await extractZip([attachedExampleFile()] as unknown as FileList);
+	return extracted[0];
+}
+
+async function extractSwappedSamplesExampleFixture() {
+	const extracted = await extractZip([swappedSamplesExampleFile()] as unknown as FileList);
 	return extracted[0];
 }
 
@@ -80,7 +96,8 @@ describe('log file processing', () => {
 			{
 				saliva_id: 'S1',
 				sampling_time: expect.any(String),
-				sample_barcode: '0010101'
+				sample_barcode: '0010101',
+				sample_scanned: 'S1'
 			}
 		]);
 	});
@@ -103,13 +120,15 @@ describe('log file processing', () => {
 			'awakening_time_D1_app',
 			'awakening_type_D1',
 			'sampling_time_S1_D1',
-			'sample_barcode_S1_D1'
+			'sample_barcode_S1_D1',
+			'sample_scanned_S1_D1'
 		]);
 		expect(csvArray[1][0]).toBe('CARWatch Test');
 		expect(csvArray[1][1]).toBe('VP_01');
 		expect(csvArray[1][2]).toBe('2026-04-17');
 		expect(csvArray[1][4]).toBe('self-report');
 		expect(csvArray[1][6]).toBe('0010101');
+		expect(csvArray[1][7]).toBe('S1');
 	});
 
 	it('extracts sampling data from the attached single-file log example', async () => {
@@ -125,6 +144,34 @@ describe('log file processing', () => {
 		expect(
 			collectedData.sampling_info.map((sample: { sample_barcode: string }) => sample.sample_barcode)
 		).toEqual(['0010101', '0010102', '0010103', '0010104']);
+		expect(
+			collectedData.sampling_info.map((sample: { sample_scanned: string }) => sample.sample_scanned)
+		).toEqual(['B1', 'B2', 'B3', 'B4']);
+	});
+
+	it('keeps scanned sample ids when samples were swapped', async () => {
+		const fixture = await extractSwappedSamplesExampleFixture();
+		const collectedData = collectData(fixture.data);
+		const csvArray = dataToWideFormat([
+			{
+				study: getStudyFromFileName(fixture.name),
+				participant: getParticipantFromFileName(fixture.name),
+				date: getDateFromFileName(fixture.name, fixture.data),
+				info: collectedData
+			}
+		]);
+
+		expect(fixture.name).toBe('carwatch_logs_02.csv');
+		expect(
+			collectedData.sampling_info.map((sample: { saliva_id: string }) => sample.saliva_id)
+		).toEqual(['B1', 'B2', 'B3', 'B4']);
+		expect(
+			collectedData.sampling_info.map((sample: { sample_scanned: string }) => sample.sample_scanned)
+		).toEqual(['B1', 'B3', 'B2', 'B4']);
+		expect(csvArray[0]).toContain('sample_scanned_B2_D1');
+		expect(csvArray[0]).toContain('sample_scanned_B3_D1');
+		expect(csvArray[1][csvArray[0].indexOf('sample_scanned_B2_D1')]).toBe('B3');
+		expect(csvArray[1][csvArray[0].indexOf('sample_scanned_B3_D1')]).toBe('B2');
 	});
 
 	it('derives fallback metadata for log files without a formatted date suffix', async () => {
