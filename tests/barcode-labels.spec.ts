@@ -62,8 +62,8 @@ function createLongCaptions() {
 	});
 }
 
-function createBarcodeData() {
-	return Array.from({ length: 48 }, (_, i) => {
+function createBarcodeData(length = 48) {
+	return Array.from({ length }, (_, i) => {
 		const participant = Math.floor(i / 6) + 1;
 		const sample = i % 6;
 		return `${String(participant).padStart(3, '0')}01${String(sample).padStart(2, '0')}`;
@@ -120,7 +120,7 @@ async function seedBarcodePageStores(
 			hasBarcode: options.hasBarcode,
 			printBarcodeValue: Boolean(options.printBarcodeValue),
 			captions: options.captions,
-			data: createBarcodeData(),
+			data: createBarcodeData(options.captions.length),
 			barcode: barcodeLayout
 		}
 	);
@@ -178,6 +178,39 @@ test('barcode labels render barcodes and barcode values inside label bounds', as
 	expect(metrics.svgChildren).toBeGreaterThan(0);
 	expect(metrics.svgWithinLabel).toBe(true);
 	expect(metrics.valueWithinLabel).toBe(true);
+});
+
+test('empty placeholders preserve the label grid on a partially filled page', async ({ page }) => {
+	await seedBarcodePageStores(page, {
+		hasBarcode: true,
+		captions: createCaptions('_').slice(0, 21)
+	});
+
+	await page.goto('/download/barcodes');
+	await page.waitForSelector('svg.barcode rect');
+
+	const metrics = await page.locator('.label').evaluateAll((labels) => {
+		const rects = labels.map((label) => label.getBoundingClientRect());
+		const first = rects[0];
+		const firstPlaceholder = rects[21];
+		const rowTops = Array.from({ length: 12 }, (_, row) => rects[row * 4].top);
+
+		return {
+			labelCount: labels.length,
+			barcodeLabelCount: labels.filter((label) => label.classList.contains('label-barcode')).length,
+			placeholderMatchesLabelSize:
+				Math.abs(firstPlaceholder.width - first.width) < 0.1 &&
+				Math.abs(firstPlaceholder.height - first.height) < 0.1,
+			rowSteps: rowTops.slice(1).map((top, index) => top - rowTops[index])
+		};
+	});
+
+	expect(metrics.labelCount).toBe(48);
+	expect(metrics.barcodeLabelCount).toBe(21);
+	expect(metrics.placeholderMatchesLabelSize).toBe(true);
+	for (const rowStep of metrics.rowSteps) {
+		expect(rowStep).toBeCloseTo(metrics.rowSteps[0], 1);
+	}
 });
 
 test('text-only labels preserve minimum padding and do not render barcode placeholders', async ({

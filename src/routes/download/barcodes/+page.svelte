@@ -162,7 +162,7 @@
 	{#each Array(numPages) as _, page}
 		<div
 			class="page grid grid-cols-{`${$barcodeProps.numCols}`} bg-white"
-			style="--width: {width}; --height: {height}"
+			style="--width: {width}; --height: {height}; --label-width: {labelWidth}; --label-height: {labelHeight}"
 			style:gap={`${rowDist} ${colDist}`}
 			style:padding-top={paddingTop}
 			style:padding-bottom={paddingBottom}
@@ -175,7 +175,6 @@
 						<div
 							class="label label-barcode p-2 overflow-hidden"
 							class:label-barcode-no-name={!$barcodeProps.addName}
-							style="--label-width: {labelWidth}; --label-height: {labelHeight}"
 						>
 							{#if $barcodeProps.addName}
 								<p class="adjust-text-size top-caption text-black px-2">
@@ -200,7 +199,6 @@
 						<div
 							class="label label-text-only overflow-hidden"
 							class:label-text-only-single={!$barcodeProps.addName}
-							style="--label-width: {labelWidth}; --label-height: {labelHeight}"
 						>
 							{#if $barcodeProps.addName}
 								<p class="adjust-text-size text-only-caption top-caption text-black px-2">
