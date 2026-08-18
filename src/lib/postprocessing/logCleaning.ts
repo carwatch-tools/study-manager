@@ -214,7 +214,7 @@ function createHeader(
 		}
 		header.push(AWAKENING_TIME + '_D' + i + '_app');
 		header.push(AWAKENING_TYPE + '_D' + i);
-		header.push(SAMPLE_MISMATCHES + '_d' + i);
+		header.push(SAMPLE_MISMATCHES + '_D' + i);
 		samples.forEach((sample) => {
 			header.push(SAMPLING_TIME + '_D' + i + '_' + sample);
 			header.push(`${SAMPLE_BARCODE}_D${i}_${sample}`);

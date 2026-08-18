@@ -119,7 +119,7 @@ describe('log file processing', () => {
 			'date_D1',
 			'awakening_time_D1_app',
 			'awakening_type_D1',
-			'sample_mismatches_d1',
+			'sample_mismatches_D1',
 			'sampling_time_D1_S1',
 			'sample_barcode_D1_S1',
 			'sample_scanned_D1_S1'
@@ -172,8 +172,8 @@ describe('log file processing', () => {
 		).toEqual(['B1', 'B3', 'B2', 'B4']);
 		expect(csvArray[0]).toContain('sample_scanned_D1_B2');
 		expect(csvArray[0]).toContain('sample_scanned_D1_B3');
-		expect(csvArray[0]).toContain('sample_mismatches_d1');
-		expect(csvArray[1][csvArray[0].indexOf('sample_mismatches_d1')]).toBe('B2->B3;B3->B2');
+		expect(csvArray[0]).toContain('sample_mismatches_D1');
+		expect(csvArray[1][csvArray[0].indexOf('sample_mismatches_D1')]).toBe('B2->B3;B3->B2');
 		expect(csvArray[1][csvArray[0].indexOf('sample_scanned_D1_B2')]).toBe('B3');
 		expect(csvArray[1][csvArray[0].indexOf('sample_scanned_D1_B3')]).toBe('B2');
 	});
