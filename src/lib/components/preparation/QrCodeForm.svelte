@@ -267,8 +267,8 @@
 					</label>
 					<label class="flex items-center space-x-2">
 						<input class="checkbox" type="checkbox" bind:checked={$qrCodeProps.checkDuplicates} />
-						<p>Enable check for duplicate barcode scanning</p>
-						<p class="text-sm opacity-70">If enabled, scanning the same barcode in the app twice will result in error message.</p>
+						<p>Enable barcode validation</p>
+						<p class="text-sm opacity-70">If enabled, the scanner only accepts the expected barcode for the current study day and sample.</p>
 					</label>
 
 					{#if $studyProps.numSamples > 1}
